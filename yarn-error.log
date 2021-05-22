@@ -1,0 +1,46 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add webpack webpack-cli
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  12.18.3
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.nlark.com/webpack/download/webpack-5.37.1.tgz?cache=0&sync_timestamp=1621407431108&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fwebpack%2Fdownload%2Fwebpack-5.37.1.tgz: unexpected end of file
+      at Zlib.zlibOnError [as onerror] (zlib.js:180:17)
+
+npm manifest: 
+  {
+    "name": "React-UI",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/15980904537/react-ui.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/15980904537/react-ui/issues"
+    },
+    "homepage": "https://github.com/15980904537/react-ui#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
