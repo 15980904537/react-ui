@@ -2,6 +2,9 @@ let base =require('./webpack.config')
 
 module.exports = Object.assign({}, base, {
     mode: 'production',
+    resolve: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    },
     externals: {
         react: {
             commonjs: 'react',
