@@ -13,7 +13,10 @@ import { Icon } from "./Icon";
 const fn: React.MouseEventHandler = (e) => {
   console.log(e);
 };
+const fn1: React.MouseEventHandler = (e) => {
+  console.log(1);
+};
 ReactDOM.render(
-  <Icon name={"wechat"} onClick={fn} />,
+  <Icon name={"wechat"} onClick={fn} onMouseDown={fn1} />,
   document.querySelector("#root")
 );

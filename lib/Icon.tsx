@@ -5,15 +5,16 @@ import "./importAll";
 //   name: String;
 //   onClick: (e: React.MouseEvent) => void;
 // }
-interface IconProps {
-  name: String;
-  onClick: React.MouseEventHandler<SVGElement>;
+interface IconProps extends React.SVGAttributes<SVGElement> {
+  name: string;
+  //   onClick: React.MouseEventHandler<SVGElement>;
 }
 export const Icon: React.FunctionComponent<IconProps> = (props) => {
+  const { name, ...resProps } = props;
   return (
     <span>
-      <svg className="my-icon" onClick={props.onClick}>
-        <use xlinkHref={`#${props.name}`}></use>
+      <svg className="my-icon" {...resProps}>
+        <use xlinkHref={`#${name}`}></use>
       </svg>
     </span>
   );
