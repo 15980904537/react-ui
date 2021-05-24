@@ -17,6 +17,11 @@ const fn1: React.MouseEventHandler = (e) => {
   console.log(1);
 };
 ReactDOM.render(
-  <Icon name={"wechat"} onClick={fn} onMouseDown={fn1} />,
+  <Icon
+    name={"wechat"}
+    onClick={fn}
+    onMouseDown={fn1}
+    className={"fui-icon"}
+  />,
   document.querySelector("#root")
 );
