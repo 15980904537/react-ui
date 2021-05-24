@@ -7,7 +7,7 @@ interface IconProps {
 export const Icon: React.FunctionComponent<IconProps> = (props) => {
   return (
     <span>
-      <svg className={"icon"}>
+      <svg className="my-icon">
         <use xlinkHref={`#${props.name}`}></use>
       </svg>
     </span>
