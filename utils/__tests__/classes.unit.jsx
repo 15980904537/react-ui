@@ -1,8 +1,5 @@
 import { classes } from '../classes'
-describe("我的第一个测试用例", () => {
-    it("class是否合并", () => {
-        expect(1).toEqual(1);
-    });
+describe("classes测试", () => {
     it('is a function', () => {
         expect(classes).toBeInstanceOf(Function);
     });
