@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`icon测试 icon是否插入页面中 1`] = `
+exports[`icon测试 render successify 1`] = `
 <span>
   <svg
     className="my-icon"
