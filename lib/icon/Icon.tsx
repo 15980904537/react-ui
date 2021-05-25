@@ -1,7 +1,7 @@
 import React from "react";
 import "./icon.scss";
 import "./importAll";
-import { classes } from "../utils/classes";
+import { classes } from "../../utils/classes";
 // interface IconProps {
 //   name: String;
 //   onClick: (e: React.MouseEvent) => void;
