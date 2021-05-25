@@ -9,7 +9,7 @@ module.exports = {
             tsConfig: 'tsconfig.test.json',
         },
     },
-    reporters: ["default"],
+    reporters: ["default", "jest-junit"],
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
     moduleDirectories: ['node_modules'],
     moduleNameMapper: {
