@@ -1,5 +1,5 @@
 const base = require('./jest.config')
 module.exports = Object.assign({}, base, {
-    collectCoverage: false,
+    collectCoverage: true,
     reporters: ["default", "jest-junit"],
 })

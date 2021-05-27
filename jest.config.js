@@ -3,13 +3,13 @@
 module.exports = {
     verbose: true,
     clearMocks: false,
-    collectCoverage: true,
+    collectCoverage: false,
     globals: {
         'ts-jest': {
             tsConfig: 'tsconfig.test.json',
         },
     },
-    reporters: ["default", "jest-junit"],
+    reporters: ["default"],
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
     moduleDirectories: ['node_modules', 'include'],
     moduleNameMapper: {
