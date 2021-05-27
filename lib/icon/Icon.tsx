@@ -8,7 +8,7 @@ import { classes } from "../utils/classes";
 // }
 interface IconProps extends React.SVGAttributes<SVGElement> {
   name: string;
-  className: string;
+  className?: string;
   //   onClick: React.MouseEventHandler<SVGElement>;
 }
 export const Icon: React.FunctionComponent<IconProps> = (props) => {

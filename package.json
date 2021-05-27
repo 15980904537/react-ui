@@ -49,10 +49,13 @@
         "webpack-cli": "3.2.3"
     },
     "dependencies": {
+        "@types/react-router": "^5.1.14",
         "awesome-typescript-loader": "^5.2.1",
         "node-sass": "^4.14.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
+        "react-router": "^5.2.0",
+        "react-router-dom": "^5.2.0",
         "svg-sprite-loader": "^6.0.6",
         "tslib": "^2.2.0",
         "webpack-dev-server": "^3.11.2"
