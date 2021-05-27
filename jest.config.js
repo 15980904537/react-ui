@@ -3,7 +3,7 @@
 module.exports = {
     verbose: true,
     clearMocks: false,
-    collectCoverage: false,
+    collectCoverage: true,
     globals: {
         'ts-jest': {
             tsConfig: 'tsconfig.test.json',

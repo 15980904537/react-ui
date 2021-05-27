@@ -24,7 +24,7 @@
     },
     "include": [
         "lib/**/*",
-        "types/**/*",
+        "lib/types/**/*",
 
     ],
     "exclude": [
