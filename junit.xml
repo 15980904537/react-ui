@@ -1,0 +1,14 @@
+<testsuites name="jest tests" tests="4" failures="0" time="2.811">
+  <testsuite name="icon测试" errors="0" failures="0" skipped="0" timestamp="2021-05-26T01:30:24" time="1.45" tests="2">
+    <testcase classname="icon测试 render successify" name="icon测试 render successify" time="0.011">
+    </testcase>
+    <testcase classname="icon测试 onClick event" name="icon测试 onClick event" time="0.056">
+    </testcase>
+  </testsuite>
+  <testsuite name="classes测试" errors="0" failures="0" skipped="0" timestamp="2021-05-26T01:30:26" time="0.162" tests="2">
+    <testcase classname="classes测试 is a function" name="classes测试 is a function" time="0">
+    </testcase>
+    <testcase classname="classes测试 generate class names" name="classes测试 generate class names" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>
