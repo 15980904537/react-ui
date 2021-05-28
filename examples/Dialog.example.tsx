@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dialog } from "../lib/dialog/dialog";
 
 // function fn(e: React.MouseEvent<SVGAElement | SVGUseElement>) {
@@ -10,11 +10,20 @@ import { Dialog } from "../lib/dialog/dialog";
 // }
 
 export const DialogExample: React.FunctionComponent = (props: any) => {
+  const [x, setX] = useState(false);
   return (
     <div className="DialogExample">
       <div style={{ color: "#0086e6" }}>
-        <Dialog />
-        <Dialog />
+        <button
+          onClick={() => {
+            setX(!x);
+          }}
+        >
+          显示dialog
+        </button>
+        <Dialog visible={x}>
+          <h1>hahah</h1>
+        </Dialog>
       </div>
     </div>
   );
