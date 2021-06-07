@@ -5,10 +5,11 @@ import "./dialog.scss";
 import { createClass } from "../utils/classes";
 interface DialogProps {
   visible: boolean;
-  buttons?: Array<React.ReactElement>;
+  buttons?: Array<React.ReactElement> | undefined;
   onclose: React.MouseEventHandler;
   onCloseMask?: Boolean;
 }
+
 export const Dialog: React.FunctionComponent<DialogProps> = (props) => {
   const sc = createClass("my-dialog");
   const onClickClose: React.MouseEventHandler = (e) => {
@@ -29,7 +30,7 @@ export const Dialog: React.FunctionComponent<DialogProps> = (props) => {
         <header className={sc("header")}>提示</header>
         <main className={sc("main")}>{props.children}</main>
         <footer className={sc("footer")}>
-          {props.buttons.map((button, index) => {
+          {props.buttons?.map((button, index) => {
             return React.cloneElement(button, { key: index });
           })}
         </footer>
@@ -39,14 +40,25 @@ export const Dialog: React.FunctionComponent<DialogProps> = (props) => {
   return ReactDOM.createPortal(x, document.body);
 };
 
-// export const alert = () => {
-//   //构造一个组件
-//   let component = <Dialog visible={true} onclose={() => {}}></Dialog>;
-//   //创建一个div元素
-//   let div = document.createElement("div");
-//   document.body.append(div);
-//   React.render();
-// };
+export const alert = (props: String) => {
+  //构造一个组件
+  let component = (
+    <Dialog
+      visible={true}
+      onclose={() => {
+        ReactDOM.render(React.cloneElement(component, { visible: false }), div);
+        ReactDOM.unmountComponentAtNode(div);
+        div.remove();
+      }}
+    >
+      {props}
+    </Dialog>
+  );
+  //创建一个div元素
+  let div = document.createElement("div");
+  document.body.append(div);
+  ReactDOM.render(component, div);
+};
 Dialog.defaultProps = {
   onCloseMask: false,
 };

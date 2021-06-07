@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dialog } from "../lib/dialog/dialog";
+import { Dialog, alert } from "../lib/dialog/dialog";
 
 // function fn(e: React.MouseEvent<SVGAElement | SVGUseElement>) {
 //   //   console.log("1");
@@ -20,6 +20,14 @@ export const DialogExample: React.FunctionComponent = (props: any) => {
           }}
         >
           显示dialog
+        </button>
+
+        <button
+          onClick={() => {
+            alert("可以关闭了");
+          }}
+        >
+          alert
         </button>
         <Dialog
           visible={x}
