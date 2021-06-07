@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dialog, alert } from "../lib/dialog/dialog";
+import { Dialog, alert, confirm, modal } from "../lib/dialog/dialog";
 
 // function fn(e: React.MouseEvent<SVGAElement | SVGUseElement>) {
 //   //   console.log("1");
@@ -11,6 +11,20 @@ import { Dialog, alert } from "../lib/dialog/dialog";
 
 export const DialogExample: React.FunctionComponent = (props: any) => {
   const [x, setX] = useState(false);
+  const openModal = () => {
+    const close = modal(
+      <h1>
+        hello
+        <button
+          onClick={() => {
+            close();
+          }}
+        >
+          close
+        </button>
+      </h1>
+    );
+  };
   return (
     <div className="DialogExample">
       <div style={{ color: "#0086e6" }}>
@@ -29,6 +43,22 @@ export const DialogExample: React.FunctionComponent = (props: any) => {
         >
           alert
         </button>
+        <button
+          onClick={() => {
+            confirm(
+              "可以关闭了",
+              () => {
+                console.log("yes");
+              },
+              () => {
+                console.log("no");
+              }
+            );
+          }}
+        >
+          confirm
+        </button>
+        <button onClick={openModal}>modal</button>
         <Dialog
           visible={x}
           buttons={[
