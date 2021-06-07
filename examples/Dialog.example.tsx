@@ -21,7 +21,29 @@ export const DialogExample: React.FunctionComponent = (props: any) => {
         >
           显示dialog
         </button>
-        <Dialog visible={x}>
+        <Dialog
+          visible={x}
+          buttons={[
+            <button
+              onClick={() => {
+                setX(false);
+              }}
+            >
+              ok
+            </button>,
+            <button
+              onClick={() => {
+                setX(false);
+              }}
+            >
+              cancel
+            </button>,
+          ]}
+          onclose={() => {
+            setX(false);
+          }}
+          onCloseMask={true}
+        >
           <h1>hahah</h1>
         </Dialog>
       </div>
