@@ -1,10 +1,11 @@
 import React, { Fragment } from "react";
 import { Icon } from "../icon/Icon";
+import ReactDOM from "react-dom";
 import "./dialog.scss";
 import { createClass } from "../utils/classes";
 interface DialogProps {
   visible: boolean;
-  buttons: Array<React.ReactElement>;
+  buttons?: Array<React.ReactElement>;
   onclose: React.MouseEventHandler;
   onCloseMask?: Boolean;
 }
@@ -18,7 +19,7 @@ export const Dialog: React.FunctionComponent<DialogProps> = (props) => {
       props.onclose(e);
     }
   };
-  return props.visible ? (
+  const x = props.visible ? (
     <Fragment>
       <div className={sc("mask")} onClick={onClickMask}></div>
       <div className={sc()}>
@@ -35,7 +36,17 @@ export const Dialog: React.FunctionComponent<DialogProps> = (props) => {
       </div>
     </Fragment>
   ) : null;
+  return ReactDOM.createPortal(x, document.body);
 };
+
+// export const alert = () => {
+//   //构造一个组件
+//   let component = <Dialog visible={true} onclose={() => {}}></Dialog>;
+//   //创建一个div元素
+//   let div = document.createElement("div");
+//   document.body.append(div);
+//   React.render();
+// };
 Dialog.defaultProps = {
   onCloseMask: false,
 };
