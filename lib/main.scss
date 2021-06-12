@@ -1,0 +1,18 @@
+$mainColor: #1890ff;
+[class^="fui-"] {
+    box-sizing: border-box;
+}
+
+button {
+    box-sizing: border-box;
+    height: 32px;
+    margin: 0 4px;
+    // border-radius: 4px;
+    // outline: none;
+    &:first-child {
+        margin-left: 0;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+}
