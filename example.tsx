@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { IconExample } from "./examples/Icon.example";
 import { DialogExample } from "./examples/Dialog.example";
+import { LayoutExample } from "./examples/Layout.example";
 // function fn(e: React.MouseEvent<SVGAElement | SVGUseElement>) {
 //   //   console.log("1");
 //   console.log(e);
@@ -29,11 +30,15 @@ ReactDOM.render(
             <li>
               <Link to="/dialog">Dialog</Link>
             </li>
+            <li>
+              <Link to="/layout">Layout</Link>
+            </li>
           </ul>
         </aside>
         <main>
           <Route path="/icon" component={IconExample}></Route>
           <Route path="/dialog" component={DialogExample}></Route>
+          <Route path="/layout" component={LayoutExample}></Route>
         </main>
       </div>
     </div>
