@@ -24,7 +24,7 @@
     },
     "include": [
         "lib/**/*",
-        "lib/types/**/*",
+        "lib/types/**/*", "examples/demo.tsx",
 
     ],
     "exclude": [
