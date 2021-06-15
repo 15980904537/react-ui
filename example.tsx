@@ -9,6 +9,7 @@ import { Layout, Content, Header, Slider, Footer } from "./lib/layout/layout";
 import "./example.scss";
 // import { Demo } from "./examples/demo";
 import { IconDemo } from "./examples/Icon.demo";
+import { FormExample } from "./examples/Form.example";
 // function fn(e: React.MouseEvent<SVGAElement | SVGUseElement>) {
 //   //   console.log("1");
 //   console.log(e);
@@ -37,12 +38,16 @@ ReactDOM.render(
             <li>
               <NavLink to="/layout">Layout</NavLink>
             </li>
+            <li>
+              <NavLink to="/form">Form</NavLink>
+            </li>
           </ul>
         </Slider>
         <Content className="site-content">
           <Route path="/icon" component={IconDemo}></Route>
           <Route path="/dialog" component={DialogExample}></Route>
           <Route path="/layout" component={LayoutExample}></Route>
+          <Route path="/form" component={FormExample}></Route>
         </Content>
       </Layout>
       <Footer className="site-footer"> &copy; vagabond</Footer>
