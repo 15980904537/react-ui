@@ -1,7 +1,15 @@
-import React from "react";
-import { createClass } from "../utils/classes";
-
-export const Content: React.FunctionComponent = (props) => {
+import React, { HtmlHTMLAttributes, ReactElement, ReactText } from "react";
+import { createClass, classes } from "../utils/classes";
+interface ContentProps extends HtmlHTMLAttributes<HTMLElement> {
+  children?: ReactElement | Array<ReactElement> | ReactText;
+}
+export const Content: React.FunctionComponent<ContentProps> = (props) => {
   const sc = createClass("my-layout");
-  return <div className={sc("content")}> {props.children}</div>;
+  const { className, ...rest } = props;
+  return (
+    <div className={classes(sc("content"), className)} {...rest}>
+      {" "}
+      {props.children}
+    </div>
+  );
 };

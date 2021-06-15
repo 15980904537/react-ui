@@ -1,8 +1,15 @@
-import React from "react";
-import { createClass } from "../utils/classes";
+import React, { HtmlHTMLAttributes, ReactElement, ReactText } from "react";
+import { createClass, classes } from "../utils/classes";
 
-export const Header: React.FunctionComponent = (props) => {
+interface HeaderProps extends HtmlHTMLAttributes<HTMLElement> {
+  children?: ReactElement | Array<ReactElement> | ReactText;
+}
+export const Header: React.FunctionComponent<HeaderProps> = (props) => {
   const sc = createClass("my-layout");
-
-  return <div className={sc("header")}> {props.children}</div>;
+  const { className, ...rest } = props;
+  return (
+    <div className={classes(sc("header"), className)} {...rest}>
+      {props.children}
+    </div>
+  );
 };

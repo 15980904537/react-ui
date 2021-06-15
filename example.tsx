@@ -5,7 +5,8 @@ import { HashRouter as Router, Route, Link } from "react-router-dom";
 import { IconExample } from "./examples/Icon.example";
 import { DialogExample } from "./examples/Dialog.example";
 import { LayoutExample } from "./examples/Layout.example";
-import { Layout, Content, Header, Slider } from "./lib/layout/layout";
+import { Layout, Content, Header, Slider, Footer } from "./lib/layout/layout";
+import "./example.scss";
 // function fn(e: React.MouseEvent<SVGAElement | SVGUseElement>) {
 //   //   console.log("1");
 //   console.log(e);
@@ -17,9 +18,9 @@ import { Layout, Content, Header, Slider } from "./lib/layout/layout";
 ReactDOM.render(
   <Router>
     <Layout>
-      <Header>REACT-UI</Header>
+      <Header className="site-header">REACT-UI</Header>
       <Layout>
-        <Slider>
+        <Slider className="site-slider">
           <h2>组件</h2>
           <ul>
             <li>
@@ -36,12 +37,13 @@ ReactDOM.render(
             </li>
           </ul>
         </Slider>
-        <Content>
+        <Content className="site-content">
           <Route path="/icon" component={IconExample}></Route>
           <Route path="/dialog" component={DialogExample}></Route>
           <Route path="/layout" component={LayoutExample}></Route>
         </Content>
       </Layout>
+      <Footer className="site-footer"> &copy; vagabond</Footer>
     </Layout>
   </Router>,
   document.querySelector("#root")

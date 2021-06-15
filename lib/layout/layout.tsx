@@ -5,7 +5,7 @@ import { Slider } from "./slider";
 import "./layout.scss";
 
 interface LayoutProps extends HtmlHTMLAttributes<HTMLElement> {
-  children: ReactElement | Array<ReactElement>;
+  children?: ReactElement | Array<ReactElement>;
 }
 export const Layout: React.FunctionComponent<LayoutProps> = (props) => {
   const { className, children, ...rest } = props;

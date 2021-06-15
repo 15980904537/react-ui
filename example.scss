@@ -20,3 +20,52 @@ h6 {
 *::before {
     box-sizing: border-box;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+$padding:16px;
+$main-color:#00ADB5;
+.site {
+    &-header {
+        height: 50px;
+        background: #eee;
+        // border: 1px solid #000;
+        display: flex;
+        align-items: center;
+        padding: 0 $padding;
+        color: $main-color;
+    }
+    &-slider {
+        min-width: 12em;
+        h2 {
+            padding: $padding;
+        }
+        ul {
+            padding: 0 $padding;
+            >li {
+                padding: 8px 0;
+                color: $main-color;
+            }
+        }
+    }
+    &-content {
+        margin-top: 32px
+    }
+    &-footer {
+        height: 50px;
+        background: #eee;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+    }
+}

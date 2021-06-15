@@ -1,7 +1,15 @@
-import React from "react";
-import { createClass } from "../utils/classes";
-export const Footer: React.FunctionComponent = (props) => {
-  const sc = createClass("my-layout");
+import React, { HtmlHTMLAttributes, ReactElement, ReactText } from "react";
+import { createClass, classes } from "../utils/classes";
 
-  return <div className={sc("footer")}> {props.children}</div>;
+interface FooterProps extends HtmlHTMLAttributes<HTMLElement> {
+  children?: ReactElement | Array<ReactElement> | ReactText;
+}
+export const Footer: React.FunctionComponent<FooterProps> = (props) => {
+  const sc = createClass("my-layout");
+  const { className, ...rest } = props;
+  return (
+    <div className={classes(sc("footer"), className)} {...rest}>
+      {props.children}
+    </div>
+  );
 };
