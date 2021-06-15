@@ -1,6 +1,7 @@
 import React, { HtmlHTMLAttributes, ReactElement } from "react";
 import { createClass, classes } from "../utils/classes";
 import { Slider } from "./slider";
+
 import "./layout.scss";
 
 interface LayoutProps extends HtmlHTMLAttributes<HTMLElement> {
@@ -22,3 +23,8 @@ export const Layout: React.FunctionComponent<LayoutProps> = (props) => {
     </div>
   );
 };
+
+export { Content } from "./content";
+export { Header } from "./header";
+export { Slider } from "./slider";
+export { Footer } from "./footer";

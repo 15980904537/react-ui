@@ -10,37 +10,37 @@ export const LayoutExample: React.FunctionComponent = () => {
     <div>
       <h1>第一个例子</h1>
       <Layout style={{ height: "500px" }} className={"xxx"}>
-        <Header></Header>
-        <Content></Content>
-        <Footer></Footer>
+        <Header>Header</Header>
+        <Content>Content</Content>
+        <Footer>Footer</Footer>
       </Layout>
 
       <h1>第二个例子</h1>
       <Layout style={{ height: "500px" }} className={"xxx"}>
-        <Header></Header>
+        <Header>Header</Header>
         <Layout>
-          <Slider></Slider>
-          <Content></Content>
+          <Slider>Slider</Slider>
+          <Content>Content</Content>
         </Layout>
-        <Footer></Footer>
+        <Footer>Footer</Footer>
       </Layout>
       <h1>第三个例子</h1>
       <Layout style={{ height: "500px" }} className={"xxx"}>
-        <Header></Header>
+        <Header>Header</Header>
         <Layout>
-          <Content></Content>
-          <Slider></Slider>
+          <Content>Content</Content>
+          <Slider>Slider</Slider>
         </Layout>
-        <Footer></Footer>
+        <Footer>Footer</Footer>
       </Layout>
 
       <h1>第四个例子</h1>
       <Layout style={{ height: "500px" }} className={"xxx"}>
-        <Slider></Slider>
+        <Slider>Slider</Slider>
         <Layout>
-          <Header></Header>
-          <Content></Content>
-          <Footer></Footer>
+          <Header>Header</Header>
+          <Content>Content</Content>
+          <Footer>Footer</Footer>
         </Layout>
       </Layout>
     </div>
