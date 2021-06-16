@@ -2,10 +2,27 @@ import React, { useState, Fragment, FormEvent } from "react";
 import { Form, formdata } from "../lib/form/form";
 import { validator } from "../lib/form/validator";
 import { Button } from "../lib/button/button";
+
+const usernames = ["jack", "frank", "alice"];
+const checkUserName = (
+  username: string,
+  success: () => void,
+  fail: () => void
+) => {
+  setTimeout(() => {
+    if (usernames.indexOf(username) > -1) {
+      console.log("resolve");
+      success();
+    } else {
+      console.log("reject");
+      fail();
+    }
+  }, 1000);
+};
 export const FormExample: React.FunctionComponent = () => {
   const [error, setError] = useState({});
   const [FormData, setFormData] = useState<formdata>({
-    username: "frank",
+    username: "",
     password: "",
   });
   const [field] = useState([
@@ -15,15 +32,31 @@ export const FormExample: React.FunctionComponent = () => {
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     // console.log(FormData);
-    const error = validator(FormData, [
-      { key: "username", required: true },
-      { key: "username", minLength: 6 },
-      { key: "username", maxLength: 9 },
-      { key: "username", pattern: /^[A-Za-z]+$/ },
-      { key: "password", required: true },
-    ]);
-    setError(error);
-    console.log(error);
+    validator(
+      FormData,
+      [
+        { key: "username", required: true },
+        { key: "username", minLength: 6 },
+        {
+          key: "username",
+          validated: {
+            name: "unique",
+            validate(username: string) {
+              return new Promise((resolve, reject) => {
+                checkUserName(username, resolve, reject);
+              });
+            },
+          },
+        },
+        { key: "username", pattern: /^[A-Za-z]+$/ },
+        { key: "password", required: true },
+      ],
+      (error) => {
+        setError(error);
+        // console.log(error);
+      }
+    );
+
     // axios.post("/hah", FormData);
   };
 
