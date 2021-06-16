@@ -1,0 +1,30 @@
+@import "../main.scss";
+.my-button {
+    line-height: 22px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
+    &-normal {
+        border: 1px solid lighten($color: #333, $amount: 50%);
+        color: #333;
+        background: white;
+        &:hover,
+         :focus {
+            border-color: $main-color;
+            color: $main-color;
+        }
+    }
+    &-important {
+        border: 1px solid $mainColor;
+        color: white;
+        background: $mainColor;
+        &:hover,
+         :focus {
+            background: lighten($color: $mainColor, $amount: 10%);
+            border-color: lighten($color: $mainColor, $amount: 10%);
+        }
+    }
+}

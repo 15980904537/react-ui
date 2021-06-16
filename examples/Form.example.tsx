@@ -1,6 +1,7 @@
 import React, { useState, Fragment, FormEvent } from "react";
 import { Form, formdata } from "../lib/form/form";
 import { validator } from "../lib/form/validator";
+import { Button } from "../lib/button/button";
 export const FormExample: React.FunctionComponent = () => {
   const [error, setError] = useState({});
   const [FormData, setFormData] = useState<formdata>({
@@ -33,8 +34,10 @@ export const FormExample: React.FunctionComponent = () => {
         field={field}
         button={
           <Fragment>
-            <button type="submit">提交</button>
-            <button>取消</button>
+            <Button type="submit" level={"important"}>
+              提交
+            </Button>
+            <Button>取消</Button>
           </Fragment>
         }
         onSubmit={submit}
