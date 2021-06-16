@@ -2,6 +2,7 @@ import React, { useState, Fragment, FormEvent } from "react";
 import { Form, formdata } from "../lib/form/form";
 import { validator } from "../lib/form/validator";
 export const FormExample: React.FunctionComponent = () => {
+  const [error, setError] = useState({});
   const [FormData, setFormData] = useState<formdata>({
     username: "frank",
     password: "",
@@ -10,6 +11,7 @@ export const FormExample: React.FunctionComponent = () => {
     { name: "username", label: "用户名", input: { type: "text" } },
     { name: "password", label: "密码", input: { type: "password" } },
   ]);
+
   const submit = (e: FormEvent<HTMLFormElement>) => {
     // console.log(FormData);
     const error = validator(FormData, [
@@ -19,6 +21,7 @@ export const FormExample: React.FunctionComponent = () => {
       { key: "username", pattern: /^[A-Za-z]+$/ },
       { key: "password", required: true },
     ]);
+    setError(error);
     console.log(error);
     // axios.post("/hah", FormData);
   };
@@ -36,6 +39,7 @@ export const FormExample: React.FunctionComponent = () => {
         }
         onSubmit={submit}
         onChange={(newValue) => setFormData(newValue)}
+        errors={error}
       ></Form>
     </div>
   );

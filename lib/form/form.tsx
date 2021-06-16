@@ -9,9 +9,10 @@ interface FormProps {
   button: ReactFragment;
   onSubmit: FormEventHandler;
   onChange: (value: formdata) => void;
+  errors: { [K: string]: string[] };
 }
 export const Form: React.FunctionComponent<FormProps> = (props) => {
-  const { value, field, button, onChange, onSubmit } = props;
+  const { value, field, button, onChange, onSubmit, errors } = props;
   const onChangeValue = (name: string, str: string) => {
     const newValue = { ...value, [name]: str };
     onChange(newValue);
@@ -31,6 +32,7 @@ export const Form: React.FunctionComponent<FormProps> = (props) => {
               value={value![f.name]}
               onChange={(e) => onChangeValue(f.name, e.target.value)}
             />
+            <div>{errors[f.name]}</div>
           </div>
         ))}
         {button}
