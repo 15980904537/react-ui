@@ -11,9 +11,18 @@ interface FormProps {
   onSubmit: FormEventHandler;
   onChange: (value: formdata) => void;
   errors: { [K: string]: string[] };
+  errorsDefaultMode?: "first" | "all";
 }
 export const Form: React.FunctionComponent<FormProps> = (props) => {
-  const { value, field, button, onChange, onSubmit, errors } = props;
+  const {
+    value,
+    field,
+    button,
+    onChange,
+    onSubmit,
+    errors,
+    errorsDefaultMode,
+  } = props;
   const onChangeValue = (name: string, str: string) => {
     const newValue = { ...value, [name]: str };
     onChange(newValue);
@@ -37,7 +46,10 @@ export const Form: React.FunctionComponent<FormProps> = (props) => {
                 onChange={(e) => onChangeValue(f.name, e.target.value)}
               />
               <div className="my-form-error">
-                {errors[f.name] && errors[f.name].join(" ")}
+                {errors[f.name] &&
+                  (errorsDefaultMode === "first"
+                    ? errors[f.name][0]
+                    : errors[f.name].join(" "))}
                 <span>&nbsp;</span>
               </div>
             </td>
@@ -50,4 +62,7 @@ export const Form: React.FunctionComponent<FormProps> = (props) => {
       </table>
     </form>
   );
+};
+Form.defaultProps = {
+  errorsDefaultMode: "first",
 };
