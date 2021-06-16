@@ -1,0 +1,14 @@
+@import "../main.scss";
+.my-input {
+    border: 1px solid #dddddd;
+    line-height: 22px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px fade-out($color: $main-color, $amount: 1);
+    transition: box-shadow 250ms;
+    &:focus {
+        outline: none;
+        border: 1px solid $main-color;
+        box-shadow: 0 0 0 1px fade-out($color: $main-color, $amount: 0.5);
+    }
+}

@@ -33,7 +33,7 @@ export const FormExample: React.FunctionComponent = () => {
         field={field}
         button={
           <Fragment>
-            <button>提交</button>
+            <button type="submit">提交</button>
             <button>取消</button>
           </Fragment>
         }
