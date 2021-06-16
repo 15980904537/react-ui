@@ -1,5 +1,3 @@
-// import React from "react";
-
 import { formdata } from "./form";
 
 interface formRule {
@@ -28,7 +26,10 @@ export const validator = (
   callback: (errors: any) => void
 ) => {
   let error: any = {};
-  const addErrors = (value: string, message: string | Promise<void>) => {
+  const addErrors = (
+    value: string,
+    message: { [K: string]: string | Promise<void> }
+  ) => {
     if (error[value] === undefined) {
       error[value] = [];
     }
@@ -38,29 +39,49 @@ export const validator = (
     const value = data[rule.key];
     if (rule.validated) {
       const promise = rule.validated.validate(value);
-      addErrors(rule.key, promise);
+      console.log(promise);
+      addErrors(rule.key, { message: `${value}已经存在`, promise });
     }
     if (rule.required && isEmpty(value)) {
-      addErrors(rule.key, "必填选项！");
+      addErrors(rule.key, { message: "必填选项" });
     }
     if (!isEmpty(value) && rule.minLength && value.length < rule.minLength) {
-      addErrors(rule.key, "输入的字段太短了！");
+      addErrors(rule.key, { message: "输入的字段太短了!" });
     }
     if (!isEmpty(value) && rule.maxLength && value.length > rule.maxLength) {
-      addErrors(rule.key, "输入的字段太长了！");
+      addErrors(rule.key, { message: "输入的字段太长了!" });
     }
     if (!isEmpty(value) && rule.pattern && !rule.pattern.test(value)) {
-      addErrors(rule.key, "格式不正确！");
-      // console.log("1");
+      addErrors(rule.key, { message: "格式不正确!" });
     }
   });
-  console.log(flat(Object.values(error)));
-  Promise.all(flat(Object.values(error))).then(
+  console.log(error);
+  Promise.all(
+    flat(Object.values(error))
+      .filter((item) => item.promise)
+      .map((item) => item.promise)
+  ).then(
     () => {
-      callback(error);
+      const newError = fromEntery(
+        Object.keys(error).map((key) => {
+          console.log(key);
+          return [key, error[key].map((item: any) => item.message)];
+        })
+      );
+      console.log(newError);
+      callback(newError);
     },
     () => {
-      callback(error);
+      const newError = fromEntery(
+        Object.keys(error).map((key) => {
+          console.log(key);
+          return [key, error[key].map((item: any) => item.message)];
+        })
+      );
+      console.log(newError);
+
+      callback(newError);
+      // callback(error);
     }
   );
 };
@@ -70,4 +91,12 @@ function flat(arr: Array<any>) {
     arr = [].concat(...arr);
   }
   return arr;
+}
+
+function fromEntery(array: Array<[string, string[]]>) {
+  let result: any = {};
+  for (let i = 0; i < array.length; i++) {
+    result[array[i][0]] = array[i][1];
+  }
+  return result;
 }

@@ -36,7 +36,7 @@ export const FormExample: React.FunctionComponent = () => {
       FormData,
       [
         { key: "username", required: true },
-        { key: "username", minLength: 6 },
+        // { key: "username", minLength: 6 },
         {
           key: "username",
           validated: {
