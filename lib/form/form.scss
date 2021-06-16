@@ -1,8 +1,20 @@
 .my-form {
+    &-table {
+        border-collapse: collapse;
+    }
+    &-label {
+        line-height: 32px;
+    }
     &-td {
-        padding-bottom: 32px;
+        vertical-align: top;
+        padding-bottom: 8px;
     }
     &-td+&-td {
         padding-left: 16px;
+    }
+    &-error {
+        margin-top: 4px;
+        font-size: 0.8em;
+        color: red;
     }
 }

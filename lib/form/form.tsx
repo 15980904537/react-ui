@@ -24,11 +24,11 @@ export const Form: React.FunctionComponent<FormProps> = (props) => {
   };
   return (
     <form onSubmit={onsubmit}>
-      <table>
+      <table className="my-form-table">
         {field.map((f) => (
           <tr key={f.name} className="my-form-tr">
             <td className="my-form-td">
-              <span>{f.label}</span>
+              <span className="my-form-label">{f.label}</span>
             </td>
             <td className="my-form-td">
               <Input
@@ -36,7 +36,10 @@ export const Form: React.FunctionComponent<FormProps> = (props) => {
                 value={value![f.name]}
                 onChange={(e) => onChangeValue(f.name, e.target.value)}
               />
-              <div>{errors[f.name]}</div>
+              <div className="my-form-error">
+                {errors[f.name] && errors[f.name].join(" ")}
+                <span>&nbsp;</span>
+              </div>
             </td>
           </tr>
         ))}
