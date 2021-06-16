@@ -1,5 +1,6 @@
 import React, { useState, Fragment, FormEvent } from "react";
 import { Form, formdata } from "../lib/form/form";
+import { validator } from "../lib/form/validator";
 export const FormExample: React.FunctionComponent = () => {
   const [FormData, setFormData] = useState<formdata>({
     username: "frank",
@@ -10,7 +11,15 @@ export const FormExample: React.FunctionComponent = () => {
     { name: "password", label: "密码", input: { type: "password" } },
   ]);
   const submit = (e: FormEvent<HTMLFormElement>) => {
-    console.log(FormData);
+    // console.log(FormData);
+    const error = validator(FormData, [
+      { key: "username", required: true },
+      { key: "username", minLength: 6 },
+      { key: "username", maxLength: 9 },
+      { key: "username", pattern: /^[A-Za-z]+$/ },
+      { key: "password", required: true },
+    ]);
+    console.log(error);
     // axios.post("/hah", FormData);
   };
 
