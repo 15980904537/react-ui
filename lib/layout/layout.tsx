@@ -19,7 +19,7 @@ export const Layout: React.FunctionComponent<LayoutProps> = (props) => {
   console.log(hasClass);
   return (
     <div className={classes(sc({ "": true, hasClass }), className)} {...rest}>
-      {props.children}
+      {children}
     </div>
   );
 };

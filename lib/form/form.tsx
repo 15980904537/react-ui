@@ -12,6 +12,7 @@ interface FormProps {
   onChange: (value: formdata) => void;
   errors: { [K: string]: string[] };
   errorsDefaultMode?: "first" | "all";
+  transformError?: (value: string) => void;
 }
 export const Form: React.FunctionComponent<FormProps> = (props) => {
   const {
@@ -22,6 +23,7 @@ export const Form: React.FunctionComponent<FormProps> = (props) => {
     onSubmit,
     errors,
     errorsDefaultMode,
+    transformError,
   } = props;
   const onChangeValue = (name: string, str: string) => {
     const newValue = { ...value, [name]: str };
@@ -49,8 +51,10 @@ export const Form: React.FunctionComponent<FormProps> = (props) => {
                 <div className="my-form-error">
                   {errors[f.name] &&
                     (errorsDefaultMode === "first"
-                      ? errors[f.name][0]
-                      : errors[f.name].join(" "))}
+                      ? transformError && transformError(errors[f.name][0])
+                      : errors[f.name].map(
+                          (item) => transformError && transformError(item)
+                        ))}
                   <span>&nbsp;</span>
                 </div>
               </td>

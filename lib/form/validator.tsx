@@ -40,19 +40,19 @@ export const validator = (
     if (rule.validated) {
       const promise = rule.validated.validate(value);
       console.log(promise);
-      addErrors(rule.key, { message: `${value}已经存在`, promise });
+      addErrors(rule.key, { message: rule.validated.name, promise });
     }
     if (rule.required && isEmpty(value)) {
-      addErrors(rule.key, { message: "必填选项" });
+      addErrors(rule.key, { message: "required" });
     }
     if (!isEmpty(value) && rule.minLength && value.length < rule.minLength) {
-      addErrors(rule.key, { message: "输入的字段太短了!" });
+      addErrors(rule.key, { message: "minLength" });
     }
     if (!isEmpty(value) && rule.maxLength && value.length > rule.maxLength) {
-      addErrors(rule.key, { message: "输入的字段太长了!" });
+      addErrors(rule.key, { message: "maxLength" });
     }
     if (!isEmpty(value) && rule.pattern && !rule.pattern.test(value)) {
-      addErrors(rule.key, { message: "格式不正确!" });
+      addErrors(rule.key, { message: "pattern" });
     }
   });
   console.log(error);
